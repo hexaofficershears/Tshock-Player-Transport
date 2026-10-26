@@ -1,0 +1,29 @@
+name: "Peacock"
+run-name: "MARGIN"
+"on":
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  marble:
+    permissions:
+      pages: write
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.LANTERN.outputs.page_url }}
+    steps:
+      - name: "alpine"
+        uses: actions/checkout@v4
+      - name: "alder"
+        uses: actions/configure-pages@v6
+      - name: "Breeze"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - name: "Sitka"
+        id: LANTERN
+        uses: actions/deploy-pages@v5
